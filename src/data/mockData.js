@@ -4,7 +4,7 @@ export const mockFarmers = [
     farmer_id: 1,
     name: "Juan Dela Cruz",
     contact_info: "+63 912 345 6789",
-    location: "Laguna, Philippines",
+    location: "Davao Del Norte",
     crop_type: "Rice"
   },
   {

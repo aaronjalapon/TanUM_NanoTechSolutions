@@ -1,11 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faLeaf, 
-  faDroplet, 
-  faBalanceScale, 
-  faThermometerHalf, 
-  faBolt 
-} from '@fortawesome/free-solid-svg-icons';
 import { getSoilStatus } from '../data/mockData';
 
 export default function SoilHealthCard({ nutrient, value, unit, icon }) {
@@ -29,55 +21,12 @@ export default function SoilHealthCard({ nutrient, value, unit, icon }) {
     deficient: 'bg-red-500'
   };
 
-  const getIconForNutrient = (nutrient) => {
-    switch(nutrient.toLowerCase()) {
-      case 'n':
-      case 'p':
-      case 'k':
-        return faLeaf;
-      case 'moisture':
-        return faDroplet;
-      case 'ph':
-        return faBalanceScale;
-      case 'temperature':
-        return faThermometerHalf;
-      case 'ec':
-        return faBolt;
-      default:
-        return faLeaf;
-    }
-  };
-
-  const getIconColor = (nutrient) => {
-    switch(nutrient.toLowerCase()) {
-      case 'n':
-        return 'text-green-600';
-      case 'p':
-        return 'text-orange-600';
-      case 'k':
-        return 'text-purple-600';
-      case 'moisture':
-        return 'text-blue-600';
-      case 'ph':
-        return 'text-indigo-600';
-      case 'temperature':
-        return 'text-red-600';
-      case 'ec':
-        return 'text-yellow-600';
-      default:
-        return 'text-gray-600';
-    }
-  };
-
   return (
     <div className={`card bg-white shadow-md border-l-4 ${statusColors[status]} hover:shadow-lg transition-shadow`}>
       <div className="card-body p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <FontAwesomeIcon 
-              icon={getIconForNutrient(nutrient)} 
-              className={`text-xl ${getIconColor(nutrient)}`} 
-            />
+            <span className="text-2xl">{icon}</span>
             <h3 className="font-header font-semibold text-text-primary uppercase text-sm">
               {nutrient === 'EC' ? 'EC' : nutrient.charAt(0).toUpperCase() + nutrient.slice(1)}
             </h3>
