@@ -46,15 +46,15 @@ export default function ResearcherDashboard() {
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-header text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
-            <FontAwesomeIcon icon="microscope" className="text-teal-800" />
+          <h1 className="font-header text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-3">
+            <FontAwesomeIcon icon="microscope" className="text-primary" />
             Research Dashboard
           </h1>
-          <p className="font-body text-gray-600">
+          <p className="font-body text-neutral-600">
             Multi-farm analysis and nano-fertilizer adoption insights
           </p>
         </div>
-        <button className="btn bg-gray-600 hover:bg-gray-700 text-white border-0 gap-2">
+        <button className="btn btn-secondary gap-2">
           <Download className="h-4 w-4" />
           Export Data
         </button>
@@ -64,41 +64,41 @@ export default function ResearcherDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="card bg-white shadow-md">
           <div className="card-body p-4 text-center">
-            <Users className="h-8 w-8 text-teal-800 mx-auto mb-2" />
-            <div className="font-mono text-2xl font-bold text-gray-900">
+            <Users className="h-8 w-8 text-primary mx-auto mb-2" />
+            <div className="font-mono text-2xl font-bold text-neutral-900">
               {farmData.length}
             </div>
-            <div className="text-sm text-gray-600">Active Farms</div>
+            <div className="text-sm text-neutral-600">Active Farms</div>
           </div>
         </div>
         
         <div className="card bg-white shadow-md">
           <div className="card-body p-4 text-center">
             <TrendingUp className="h-8 w-8 text-green-600 mx-auto mb-2" />
-            <div className="font-mono text-2xl font-bold text-gray-900">
+            <div className="font-mono text-2xl font-bold text-neutral-900">
               {(farmData.reduce((acc, farm) => acc + farm.adoption, 0) / farmData.length).toFixed(0)}%
             </div>
-            <div className="text-sm text-gray-600">Avg Adoption Rate</div>
+            <div className="text-sm text-neutral-600">Avg Adoption Rate</div>
           </div>
         </div>
         
         <div className="card bg-white shadow-md">
           <div className="card-body p-4 text-center">
             <BarChart3 className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-            <div className="font-mono text-2xl font-bold text-gray-900">
+            <div className="font-mono text-2xl font-bold text-neutral-900">
               {(farmData.reduce((acc, farm) => acc + farm.yield, 0) / farmData.length).toFixed(1)}
             </div>
-            <div className="text-sm text-gray-600">Avg Yield (t/ha)</div>
+            <div className="text-sm text-neutral-600">Avg Yield (t/ha)</div>
           </div>
         </div>
         
         <div className="card bg-white shadow-md">
           <div className="card-body p-4 text-center">
             <div className="text-2xl mb-2">🌱</div>
-            <div className="font-mono text-2xl font-bold text-gray-900">
+            <div className="font-mono text-2xl font-bold text-neutral-900">
               {(farmData.reduce((acc, farm) => acc + farm.soilHealth, 0) / farmData.length).toFixed(0)}
             </div>
-            <div className="text-sm text-gray-600">Avg Soil Health</div>
+            <div className="text-sm text-neutral-600">Avg Soil Health</div>
           </div>
         </div>
       </div>
@@ -106,8 +106,8 @@ export default function ResearcherDashboard() {
       {/* Multi-Farm Comparison Table */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-                    <h2 className="font-header text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <FontAwesomeIcon icon="chart-bar" className="text-teal-800" />
+                    <h2 className="font-header text-2xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
+            <FontAwesomeIcon icon="chart-bar" className="text-primary" />
             Multi-Farm Comparison
           </h2>
           
@@ -168,7 +168,7 @@ export default function ResearcherDashboard() {
         {/* Adoption vs Yield Trend */}
         <div className="card bg-white shadow-md">
           <div className="card-body">
-            <h3 className="card-title font-header text-gray-900 mb-4">
+            <h3 className="card-title font-header text-neutral-900 mb-4">
               📈 Adoption vs Yield Trend
             </h3>
             
@@ -189,7 +189,7 @@ export default function ResearcherDashboard() {
                   yAxisId="left"
                   type="monotone" 
                   dataKey="adoption" 
-                  stroke="#115e59" 
+                  stroke="#00563e" 
                   strokeWidth={3}
                   name="Adoption Rate (%)"
                 />
@@ -197,7 +197,7 @@ export default function ResearcherDashboard() {
                   yAxisId="right"
                   type="monotone" 
                   dataKey="yield" 
-                  stroke="#dc2626" 
+                  stroke="#8d1536" 
                   strokeWidth={3}
                   name="Avg Yield (t/ha)"
                 />
@@ -209,7 +209,7 @@ export default function ResearcherDashboard() {
         {/* Soil Health vs Yield Correlation */}
         <div className="card bg-white shadow-md">
           <div className="card-body">
-            <h3 className="card-title font-header text-gray-900 mb-4">
+            <h3 className="card-title font-header text-neutral-900 mb-4">
               🔬 Soil Health vs Yield Correlation
             </h3>
             
@@ -238,7 +238,7 @@ export default function ResearcherDashboard() {
                     if (active && payload && payload.length) {
                       const data = payload[0].payload;
                       return (
-                        <div className="bg-white p-3 border border-gray-100 rounded-lg shadow-lg">
+                        <div className="bg-white p-3 border border-neutral-100 rounded-lg shadow-lg">
                           <p className="font-medium">{data.farmer}</p>
                           <p className="text-sm">Soil Health: {data.soilHealth}</p>
                           <p className="text-sm">Yield: {data.yield} t/ha</p>
@@ -249,11 +249,11 @@ export default function ResearcherDashboard() {
                     return null;
                   }}
                 />
-                <Scatter dataKey="yield" fill="#115e59" />
+                <Scatter dataKey="yield" fill="#00563e" />
               </ScatterChart>
             </ResponsiveContainer>
             
-            <div className="mt-2 text-xs text-gray-600">
+            <div className="mt-2 text-xs text-neutral-600">
               <p>🔍 Strong positive correlation (R² = 0.85) between soil health and yield</p>
             </div>
           </div>
@@ -263,39 +263,39 @@ export default function ResearcherDashboard() {
       {/* Impact Analysis */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-gray-900 mb-4">
+          <h2 className="card-title font-header text-neutral-900 mb-4">
             📊 Impact Analysis Summary
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-4 bg-green-50 rounded-lg">
               <div className="font-mono text-3xl font-bold text-green-700 mb-2">+18.5%</div>
-              <div className="font-medium text-gray-900">Average Yield Increase</div>
-              <div className="text-sm text-gray-600 mt-1">
+              <div className="font-medium text-neutral-900">Average Yield Increase</div>
+              <div className="text-sm text-neutral-600 mt-1">
                 Compared to traditional fertilizer methods
               </div>
             </div>
             
             <div className="text-center p-4 bg-blue-50 rounded-lg">
               <div className="font-mono text-3xl font-bold text-blue-700 mb-2">₱45,200</div>
-              <div className="font-medium text-gray-900">Total Additional Income</div>
-              <div className="text-sm text-gray-600 mt-1">
+              <div className="font-medium text-neutral-900">Total Additional Income</div>
+              <div className="text-sm text-neutral-600 mt-1">
                 Across all participating farms this season
               </div>
             </div>
             
             <div className="text-center p-4 bg-purple-50 rounded-lg">
               <div className="font-mono text-3xl font-bold text-purple-700 mb-2">-28%</div>
-              <div className="font-medium text-gray-900">Environmental Impact</div>
-              <div className="text-sm text-gray-600 mt-1">
+              <div className="font-medium text-neutral-900">Environmental Impact</div>
+              <div className="text-sm text-neutral-600 mt-1">
                 Reduction in chemical fertilizer usage
               </div>
             </div>
           </div>
           
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-semibold text-gray-900 mb-2">Key Findings</h3>
-            <ul className="text-sm text-gray-700 space-y-1">
+          <div className="mt-6 p-4 bg-neutral-50 rounded-lg">
+            <h3 className="font-semibold text-neutral-900 mb-2">Key Findings</h3>
+            <ul className="text-sm text-neutral-700 space-y-1">
               <li>✅ 90% of farmers report improved soil structure</li>
               <li>✅ 85% reduction in nutrient deficiency alerts</li>
               <li>✅ Optimal adoption rate achieved in 80% of participating farms</li>
@@ -309,26 +309,26 @@ export default function ResearcherDashboard() {
       {/* Export Options */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-gray-900 mb-4">
+          <h2 className="card-title font-header text-neutral-900 mb-4">
             📄 Export & Reports
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button className="btn btn-outline border-gray-300 text-gray-700 hover:bg-gray-100 gap-2">
+            <button className="btn btn-outline gap-2">
               <Download className="h-4 w-4" />
               Soil Data (CSV)
             </button>
-            <button className="btn btn-outline border-gray-300 text-gray-700 hover:bg-gray-100 gap-2">
+            <button className="btn btn-outline gap-2">
               <Download className="h-4 w-4" />
               Fertilizer Logs (Excel)
             </button>
-            <button className="btn bg-gray-600 hover:bg-gray-700 text-white border-0 gap-2">
+            <button className="btn btn-secondary gap-2">
               <Download className="h-4 w-4" />
               Full Season Report (PDF)
             </button>
           </div>
           
-          <div className="mt-4 text-sm text-gray-600">
+          <div className="mt-4 text-sm text-neutral-600">
             <p>💡 Reports include: farm comparison, yield analysis, cost-benefit calculations, and environmental impact assessment</p>
           </div>
         </div>

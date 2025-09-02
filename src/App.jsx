@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Layout from './components/Layout';
@@ -7,6 +8,30 @@ import Tracker from './pages/Tracker';
 import ResearcherDashboard from './pages/ResearcherDashboard';
 
 function App() {
+  // Force light mode on component mount and prevent dark mode
+  useEffect(() => {
+    const forceLightMode = () => {
+      document.documentElement.setAttribute('data-theme', 'agrisense');
+      document.documentElement.style.colorScheme = 'light';
+      document.documentElement.classList.remove('dark');
+      document.body.style.colorScheme = 'light';
+    };
+    
+    forceLightMode();
+    
+    // Listen for any theme changes and override them
+    const observer = new MutationObserver(() => {
+      forceLightMode();
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'class']
+    });
+    
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <AppProvider>
       <Router>

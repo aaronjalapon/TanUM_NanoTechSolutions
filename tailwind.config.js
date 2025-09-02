@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Disable automatic dark mode detection
   theme: {
     extend: {
       colors: {
@@ -89,6 +90,7 @@ export default {
     utils: true,
     logs: false,
     rtl: false,
+    darkTheme: false, // Disable dark theme completely
   },
 }
 

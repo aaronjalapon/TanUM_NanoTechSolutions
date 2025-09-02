@@ -23,7 +23,7 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-teal-800 to-teal-700 text-white rounded-lg p-6">
+      <div className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-lg p-6">
         <h1 className="font-header text-3xl font-bold mb-2 flex items-center gap-3">
           Welcome back, {state.currentFarmer?.name}! 
           <FontAwesomeIcon icon="seedling" className="text-green-300" />
@@ -45,7 +45,7 @@ export default function Dashboard() {
 
       {/* Soil Health Cards Grid */}
       <div>
-        <h2 className="font-header text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+        <h2 className="font-header text-2xl font-bold text-text-primary mb-4 flex items-center gap-3">
           <FontAwesomeIcon icon="seedling" className="text-green-600" />
           Soil Health Monitoring
         </h2>
@@ -73,26 +73,26 @@ export default function Dashboard() {
           {/* Quick Actions Card */}
           <div className="card bg-white shadow-md mt-4">
             <div className="card-body p-4">
-              <h3 className="font-header font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <FontAwesomeIcon icon="bolt" className="text-teal-800" />
+              <h3 className="font-header font-semibold text-text-primary mb-3 flex items-center gap-2">
+                <FontAwesomeIcon icon="bolt" className="text-primary" />
                 Quick Actions
               </h3>
               <div className="space-y-2">
                 <a 
                   href="/recommendations" 
-                  className="btn bg-teal-800 hover:bg-teal-700 text-white btn-sm w-full justify-start gap-2 border-0"
+                  className="btn btn-primary btn-sm w-full justify-start gap-2"
                 >
                   <FontAwesomeIcon icon="flask" />
                   View Recommendations
                 </a>
                 <a 
                   href="/tracker" 
-                  className="btn btn-outline border-teal-800 text-teal-800 hover:bg-teal-800 hover:text-white btn-sm w-full justify-start gap-2"
+                  className="btn btn-outline btn-sm w-full justify-start gap-2"
                 >
                   <FontAwesomeIcon icon="chart-bar" />
                   Log Fertilizer Application
                 </a>
-                <button className="btn btn-ghost text-gray-700 hover:bg-gray-100 btn-sm w-full justify-start gap-2">
+                <button className="btn btn-ghost btn-sm w-full justify-start gap-2">
                   <FontAwesomeIcon icon="sync" />
                   Sync Device Data
                 </button>
@@ -105,31 +105,31 @@ export default function Dashboard() {
       {/* Recent Activity */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-gray-900 mb-4 flex items-center gap-2">
-            <FontAwesomeIcon icon="chart-line" className="text-teal-800" />
+          <h2 className="card-title font-header text-neutral-900 mb-4 flex items-center gap-2">
+            <FontAwesomeIcon icon="chart-line" className="text-primary" />
             Recent Activity
           </h2>
           <div className="space-y-3">
             <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="font-medium text-gray-900">Soil data updated</span>
+                <span className="font-medium text-neutral-900">Soil data updated</span>
               </div>
-              <span className="text-sm text-gray-600">2 minutes ago</span>
+              <span className="text-sm text-neutral-600">2 minutes ago</span>
             </div>
             <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="font-medium text-gray-900">New recommendation available</span>
+                <span className="font-medium text-neutral-900">New recommendation available</span>
               </div>
-              <span className="text-sm text-gray-600">1 hour ago</span>
+              <span className="text-sm text-neutral-600">1 hour ago</span>
             </div>
             <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                <span className="font-medium text-gray-900">Fertilizer application logged</span>
+                <span className="font-medium text-neutral-900">Fertilizer application logged</span>
               </div>
-              <span className="text-sm text-gray-600">1 day ago</span>
+              <span className="text-sm text-neutral-600">1 day ago</span>
             </div>
           </div>
         </div>

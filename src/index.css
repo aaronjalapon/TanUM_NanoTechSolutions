@@ -3,12 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  /* Force light mode - override system preferences */
+  :root {
+    color-scheme: light !important;
+  }
+  
+  html {
+    color-scheme: light !important;
+  }
+  
   body {
     font-family: 'Open Sans', sans-serif;
+    background-color: #f9f9f9 !important;
+    color: #111827 !important;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Ensure no dark mode styles are applied */
+  * {
+    color-scheme: light !important;
   }
 }
 

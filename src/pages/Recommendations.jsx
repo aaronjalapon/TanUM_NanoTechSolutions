@@ -100,40 +100,40 @@ export default function Recommendations() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="font-header text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
-          <FontAwesomeIcon icon="flask" className="text-green-600" />
+        <h1 className="font-header text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-3">
+          <FontAwesomeIcon icon="flask" className="text-primary" />
           AI Fertilizer Recommendations
         </h1>
-        <p className="font-body text-gray-600">
+        <p className="font-body text-neutral-600">
           Smart nano-fertilizer suggestions based on real-time soil analysis
         </p>
       </div>
 
       {/* AI Recommendation Card */}
       {aiRecommendation && (
-        <div className="card bg-white shadow-lg border-l-4 border-green-500">
+        <div className="card bg-gradient-to-r from-primary/10 to-secondary/10 shadow-lg border-l-4 border-primary">
           <div className="card-body p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-header text-xl font-bold text-gray-900 flex items-center gap-2">
-                <FontAwesomeIcon icon="brain" className="text-green-600" />
+              <h2 className="font-header text-xl font-bold text-neutral-900 flex items-center gap-2">
+                <FontAwesomeIcon icon="brain" className="text-primary" />
                 AI Recommendation
               </h2>
-              <div className="badge bg-green-100 text-green-800 badge-lg">
+              <div className="badge badge-primary badge-lg">
                 {getConfidenceLevel(aiRecommendation.confidence)} Confidence
               </div>
             </div>
             
-            <div className="bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-200">
+            <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
               <div className="flex items-center gap-3 mb-2">
-                <FontAwesomeIcon icon="seedling" className="text-green-600 text-lg" />
-                <span className="font-header font-semibold text-lg text-gray-900">
+                <FontAwesomeIcon icon="seedling" className="text-primary text-lg" />
+                <span className="font-header font-semibold text-lg text-neutral-900">
                   Recommended Fertilizer
                 </span>
               </div>
-              <p className="font-mono text-2xl font-bold text-green-600 mb-2">
+              <p className="font-mono text-2xl font-bold text-primary mb-2">
                 {aiRecommendation.predicted_fertilizer}
               </p>
-              <p className="text-gray-700 text-sm">
+              <p className="text-neutral-700 text-sm">
                 Confidence: {(aiRecommendation.confidence * 100).toFixed(1)}% • 
                 Generated: {new Date(aiRecommendation.timestamp).toLocaleString()}
               </p>
@@ -141,10 +141,10 @@ export default function Recommendations() {
 
             {/* AI Recommendations List */}
             <div className="space-y-2 mb-4">
-              <h3 className="font-semibold text-gray-900 mb-2">AI Insights:</h3>
+              <h3 className="font-semibold text-neutral-900 mb-2">AI Insights:</h3>
               {aiRecommendation.recommendations.map((rec, index) => (
-                <div key={index} className="flex items-start gap-2 text-sm text-gray-700 bg-gray-50 rounded p-2">
-                  <span className="text-green-600">•</span>
+                <div key={index} className="flex items-start gap-2 text-sm text-neutral-700 bg-white/50 rounded p-2">
+                  <span className="text-primary">•</span>
                   <span>{rec}</span>
                 </div>
               ))}
@@ -155,7 +155,7 @@ export default function Recommendations() {
               <button 
                 onClick={fetchAiRecommendation}
                 disabled={loading}
-                className="btn bg-green-600 hover:bg-green-700 text-white flex-1 gap-2"
+                className="btn btn-primary flex-1 gap-2"
               >
                 {loading ? (
                   <FontAwesomeIcon icon="spinner" className="animate-spin" />
@@ -164,7 +164,7 @@ export default function Recommendations() {
                 )}
                 {loading ? 'Analyzing...' : 'Refresh Analysis'}
               </button>
-              <button className="btn border border-green-600 text-green-600 hover:bg-green-50 gap-2">
+              <button className="btn btn-outline gap-2">
                 <FontAwesomeIcon icon="plus" />
                 Log Application
               </button>
@@ -175,10 +175,10 @@ export default function Recommendations() {
 
       {/* Loading State */}
       {loading && !aiRecommendation && (
-        <div className="card bg-white shadow-lg border border-gray-200">
+        <div className="card bg-white shadow-lg">
           <div className="card-body p-6 text-center">
-            <FontAwesomeIcon icon="spinner" className="text-green-600 text-2xl animate-spin mb-3" />
-            <p className="text-gray-600">Analyzing soil data with AI...</p>
+            <FontAwesomeIcon icon="spinner" className="text-primary text-2xl animate-spin mb-3" />
+            <p className="text-neutral-600">Analyzing soil data with AI...</p>
           </div>
         </div>
       )}
@@ -196,7 +196,7 @@ export default function Recommendations() {
             <p className="text-red-700 mb-3">{error}</p>
             <button 
               onClick={fetchAiRecommendation}
-              className="btn bg-red-600 hover:bg-red-700 text-white btn-sm"
+              className="btn btn-error btn-sm"
             >
               Retry Analysis
             </button>
@@ -218,10 +218,10 @@ export default function Recommendations() {
             Soil Electrical Conductivity dropping – nutrient deficiency likely in 7 days
           </p>
           <div className="flex gap-2">
-            <button className="btn bg-red-600 hover:bg-red-700 text-white btn-sm">
+            <button className="btn btn-error btn-sm">
               Take Action Now
             </button>
-            <button className="btn bg-transparent border-0 text-red-700 hover:bg-red-100 btn-sm">
+            <button className="btn btn-ghost btn-sm text-red-700">
               Set Reminder
             </button>
           </div>
@@ -229,9 +229,9 @@ export default function Recommendations() {
       </div>
 
       {/* Recommendation History */}
-      <div className="card bg-white shadow-md border border-gray-200">
+      <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-gray-900 mb-4">
+          <h2 className="card-title font-header text-neutral-900 mb-4">
             📈 Recommendation History
           </h2>
           
@@ -240,13 +240,13 @@ export default function Recommendations() {
               <div className="flex items-center gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600" />
                 <div>
-                  <div className="font-medium text-gray-900">Apply 12ml Nano-Nitrogen</div>
-                  <div className="text-sm text-gray-600">High confidence • Applied successfully</div>
+                  <div className="font-medium text-neutral-900">Apply 12ml Nano-Nitrogen</div>
+                  <div className="text-sm text-neutral-600">High confidence • Applied successfully</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm text-gray-600">Aug 17, 2025</div>
-                <div className="badge bg-green-100 text-green-800 badge-sm">Completed</div>
+                <div className="text-sm text-neutral-600">Aug 17, 2025</div>
+                <div className="badge badge-success badge-sm">Completed</div>
               </div>
             </div>
 
@@ -254,13 +254,13 @@ export default function Recommendations() {
               <div className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-yellow-600" />
                 <div>
-                  <div className="font-medium text-gray-900">Apply 8ml Nano-Phosphorus</div>
-                  <div className="text-sm text-gray-600">Medium confidence • Pending application</div>
+                  <div className="font-medium text-neutral-900">Apply 8ml Nano-Phosphorus</div>
+                  <div className="text-sm text-neutral-600">Medium confidence • Pending application</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm text-gray-600">Aug 15, 2025</div>
-                <div className="badge bg-yellow-100 text-yellow-800 badge-sm">Pending</div>
+                <div className="text-sm text-neutral-600">Aug 15, 2025</div>
+                <div className="badge badge-warning badge-sm">Pending</div>
               </div>
             </div>
 
@@ -268,13 +268,13 @@ export default function Recommendations() {
               <div className="flex items-center gap-3">
                 <CheckCircle className="h-5 w-5 text-gray-600" />
                 <div>
-                  <div className="font-medium text-gray-900">No action needed</div>
-                  <div className="text-sm text-gray-600">High confidence • Soil levels optimal</div>
+                  <div className="font-medium text-neutral-900">No action needed</div>
+                  <div className="text-sm text-neutral-600">High confidence • Soil levels optimal</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm text-gray-600">Aug 14, 2025</div>
-                <div className="badge bg-gray-100 text-gray-800 badge-sm">Completed</div>
+                <div className="text-sm text-neutral-600">Aug 14, 2025</div>
+                <div className="badge badge-ghost badge-sm">Completed</div>
               </div>
             </div>
           </div>
