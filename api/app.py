@@ -21,3 +21,6 @@ async def root():
 async def predict(request: Request):
     data = await request.json()
     return JSONResponse({"result": "ok", "received": data})
+
+# Vercel handler
+handler = app
