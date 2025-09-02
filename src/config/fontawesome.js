@@ -80,7 +80,13 @@ import {
   
   // Status indicators
   faCircle,
-  faSquare
+  faSquare,
+  
+  // AI & Machine Learning
+  faBrain,
+  faRobot,
+  faSpinner,
+  faRefresh
 } from '@fortawesome/free-solid-svg-icons';
 
 // Add icons to the library
@@ -165,5 +171,11 @@ library.add(
   
   // Status indicators
   faCircle,
-  faSquare
+  faSquare,
+  
+  // AI & Machine Learning
+  faBrain,
+  faRobot,
+  faSpinner,
+  faRefresh
 );
