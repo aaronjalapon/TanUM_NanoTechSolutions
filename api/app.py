@@ -6,7 +6,7 @@ app = FastAPI()
 @app.post("/predict")
 async def predict(request: Request):
     data = await request.json()
-    # Dummy response for testing
     return JSONResponse({"result": "ok", "received": data})
 
-handler = app  # For Vercel
+# This is required for Vercel Python serverless
+handler = app
