@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AlertTriangle, CheckCircle, Clock } from 'lucide-react';
+import { AlertTriangle, Clock, CheckCircle } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useApp } from '../context/AppContext';
 
@@ -8,8 +8,6 @@ export default function Recommendations() {
   const [aiRecommendation, setAiRecommendation] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
-  const recommendation = state.recommendations[0] || {};
 
   // Fetch AI recommendation from ML backend
   const fetchAiRecommendation = async () => {
@@ -205,62 +203,6 @@ export default function Recommendations() {
           </div>
         </div>
       )}
-
-      {/* Main Recommendation Card */}
-      <div className="card bg-white shadow-lg border-l-4 border-primary">
-        <div className="card-body p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-header text-xl font-bold text-neutral-900">
-              Current Recommendation
-            </h2>
-            <div className="badge badge-primary badge-lg max-w-full text-xs sm:text-sm md:text-base lg:text-lg">
-              {recommendation.confidence_level || 'High'} Confidence
-            </div>
-          </div>
-          
-          <div className="bg-primary/10 rounded-lg p-4 mb-4">
-            <div className="flex items-center gap-3 mb-2">
-              <CheckCircle className="h-6 w-6 text-primary" />
-              <span className="font-header font-semibold text-lg text-neutral-900">
-                Recommended Action
-              </span>
-            </div>
-            <p className="font-mono text-2xl font-bold text-primary mb-2">
-              {recommendation.recommended_dosage || "Apply 12ml Nano-Nitrogen in 3 days"}
-            </p>
-            <p className="text-neutral-700">
-              {recommendation.notes || "Soil nitrogen levels are optimal. Continue current schedule."}
-            </p>
-          </div>
-
-          {/* Confidence Meter */}
-          <div className="mb-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="font-medium text-neutral-900">Confidence Level</span>
-              <span className="font-mono font-semibold text-neutral-700">
-                {recommendation.confidence_level || 'High'}
-              </span>
-            </div>
-            <div className="w-full bg-neutral-200 rounded-full h-3">
-              <div 
-                className={`h-3 rounded-full ${getConfidenceColor(recommendation.confidence_level)} ${getConfidenceWidth(recommendation.confidence_level)}`}
-              ></div>
-            </div>
-          </div>
-
-          {/* Action Button */}
-          <div className="flex gap-3">
-            <button className="btn btn-primary flex-1 gap-2">
-              <FontAwesomeIcon icon="plus" />
-              Log Application
-            </button>
-            <button className="btn btn-outline gap-2">
-              <FontAwesomeIcon icon="eye" />
-              View Details
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* Deficiency Alert */}
       <div className="card bg-red-50 border border-red-200 shadow-md">
