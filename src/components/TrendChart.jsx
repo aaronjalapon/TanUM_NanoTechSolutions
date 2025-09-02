@@ -7,8 +7,8 @@ export default function TrendChart() {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 border border-neutral-100 rounded-lg shadow-lg">
-          <p className="font-medium text-neutral-900">{`Date: ${label}`}</p>
+        <div className="bg-white p-3 border border-gray-100 rounded-lg shadow-lg">
+          <p className="font-medium text-gray-900">{`Date: ${label}`}</p>
           {payload.map((entry, index) => (
             <p key={index} style={{ color: entry.color }} className="text-sm">
               {`${entry.dataKey}: ${entry.value.toFixed(1)} ${getUnit(entry.dataKey)}`}
@@ -36,7 +36,7 @@ export default function TrendChart() {
   return (
     <div className="card bg-white shadow-md">
       <div className="card-body">
-        <h2 className="card-title font-header text-neutral-900 mb-4">
+        <h2 className="card-title font-header text-gray-900 mb-4">
           📊 Nutrient Trends (7 Days)
         </h2>
         
@@ -56,17 +56,17 @@ export default function TrendChart() {
             <Line 
               type="monotone" 
               dataKey="Nitrogen" 
-              stroke="#00563e" 
+              stroke="#115e59" 
               strokeWidth={2} 
-              dot={{ fill: '#00563e', strokeWidth: 2, r: 4 }}
+              dot={{ fill: '#115e59', strokeWidth: 2, r: 4 }}
               name="Nitrogen"
             />
             <Line 
               type="monotone" 
               dataKey="Phosphorus" 
-              stroke="#8d1536" 
+              stroke="#dc2626" 
               strokeWidth={2} 
-              dot={{ fill: '#8d1536', strokeWidth: 2, r: 4 }}
+              dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
               name="Phosphorus"
             />
             <Line 
@@ -88,7 +88,7 @@ export default function TrendChart() {
           </LineChart>
         </ResponsiveContainer>
         
-        <div className="mt-4 text-xs text-neutral-600">
+        <div className="mt-4 text-xs text-gray-600">
           <p>📈 Green lines indicate healthy levels, red lines show critical values</p>
         </div>
       </div>

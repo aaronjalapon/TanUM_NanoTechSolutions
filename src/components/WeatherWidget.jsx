@@ -18,7 +18,7 @@ export default function WeatherWidget() {
   return (
     <div className="card bg-white shadow-md">
       <div className="card-body p-4">
-        <h3 className="font-header font-semibold text-text-primary mb-3 flex items-center gap-2">
+        <h3 className="font-header font-semibold text-gray-900 mb-3 flex items-center gap-2">
           <FontAwesomeIcon icon="sun" className="text-yellow-500" />
           Weather Forecast
         </h3>
@@ -27,18 +27,18 @@ export default function WeatherWidget() {
           <div className="flex items-center gap-3">
             {getWeatherIcon(weather.forecast)}
             <div>
-              <div className="font-mono text-2xl font-bold text-text-primary">
+              <div className="font-mono text-2xl font-bold text-gray-900">
                 {weather.temperature}°C
               </div>
-              <div className="text-sm text-text-secondary">
+              <div className="text-sm text-gray-600">
                 {weather.forecast}
               </div>
             </div>
           </div>
           
           <div className="text-right">
-            <div className="text-sm text-text-secondary">Humidity</div>
-            <div className="font-mono font-semibold text-text-primary">
+            <div className="text-sm text-gray-600">Humidity</div>
+            <div className="font-mono font-semibold text-gray-900">
               {weather.humidity}%
             </div>
           </div>

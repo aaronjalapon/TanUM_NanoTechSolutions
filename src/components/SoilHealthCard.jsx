@@ -27,7 +27,7 @@ export default function SoilHealthCard({ nutrient, value, unit, icon }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl">{icon}</span>
-            <h3 className="font-header font-semibold text-text-primary uppercase text-sm">
+            <h3 className="font-header font-semibold text-gray-900 uppercase text-sm">
               {nutrient === 'EC' ? 'EC' : nutrient.charAt(0).toUpperCase() + nutrient.slice(1)}
             </h3>
           </div>
@@ -35,12 +35,12 @@ export default function SoilHealthCard({ nutrient, value, unit, icon }) {
         </div>
         
         <div className="mt-2">
-          <div className="font-mono text-2xl font-bold text-text-primary">
+          <div className="font-mono text-2xl font-bold text-gray-900">
             {value}
-            <span className="text-sm font-normal text-text-secondary ml-1">{unit}</span>
+            <span className="text-sm font-normal text-gray-600 ml-1">{unit}</span>
           </div>
           <div className="flex items-center justify-between mt-2">
-            <span className="text-xs font-medium uppercase tracking-wide text-text-secondary">
+            <span className="text-xs font-medium uppercase tracking-wide text-gray-600">
               {statusLabels[status]}
             </span>
           </div>

@@ -283,52 +283,52 @@ export default function Recommendations() {
 
       {/* Recommendation Factors */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="card bg-white shadow-md border border-gray-200">
+        <div className="card bg-white shadow-md">
           <div className="card-body">
-            <h3 className="card-title font-header text-gray-900 mb-4">
+            <h3 className="card-title font-header text-neutral-900 mb-4">
               🔬 Analysis Factors
             </h3>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-600">Crop Stage</span>
-                <span className="font-medium text-gray-900">Tillering (45 Days After Sowing)</span>
+                <span className="text-neutral-600">Crop Stage</span>
+                <span className="font-medium">Tillering (45 Days After Sowing)</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Soil Moisture</span>
-                <span className="font-medium text-gray-900">75% (Optimal)</span>
+                <span className="text-neutral-600">Soil Moisture</span>
+                <span className="font-medium">75% (Optimal)</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Weather Forecast</span>
-                <span className="font-medium text-gray-900">Rain in 2 days</span>
+                <span className="text-neutral-600">Weather Forecast</span>
+                <span className="font-medium">Rain in 2 days</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Last Application</span>
-                <span className="font-medium text-gray-900">7 days ago</span>
+                <span className="text-neutral-600">Last Application</span>
+                <span className="font-medium">7 days ago</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="card bg-white shadow-md border border-gray-200">
+        <div className="card bg-white shadow-md">
           <div className="card-body">
-            <h3 className="card-title font-header text-gray-900 mb-4">
+            <h3 className="card-title font-header text-neutral-900 mb-4">
               🎯 Expected Outcomes
             </h3>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-600">Yield Improvement</span>
+                <span className="text-neutral-600">Yield Improvement</span>
                 <span className="font-medium text-green-600">+12%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Cost Efficiency</span>
+                <span className="text-neutral-600">Cost Efficiency</span>
                 <span className="font-medium text-green-600">+8%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Soil Health</span>
+                <span className="text-neutral-600">Soil Health</span>
                 <span className="font-medium text-green-600">Improved</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Environmental Impact</span>
+                <span className="text-neutral-600">Environmental Impact</span>
                 <span className="font-medium text-green-600">Reduced</span>
               </div>
             </div>

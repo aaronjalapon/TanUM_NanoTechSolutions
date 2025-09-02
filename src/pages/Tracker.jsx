@@ -26,15 +26,15 @@ export default function Tracker() {
       {/* Page Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="font-header text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-3">
-            <FontAwesomeIcon icon="chart-bar" className="text-primary" />
+          <h1 className="font-header text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
+            <FontAwesomeIcon icon="chart-bar" className="text-teal-800" />
             Fertilizer Application Tracker
           </h1>
-          <p className="font-body text-neutral-600">
+          <p className="font-body text-gray-600">
             Monitor nano-fertilizer applications and track soil improvements
           </p>
         </div>
-        <button className="btn btn-primary gap-2">
+        <button className="btn bg-teal-800 hover:bg-teal-700 text-white border-0 gap-2">
           <Plus className="h-4 w-4" />
           Log New Application
         </button>
@@ -43,31 +43,31 @@ export default function Tracker() {
       {/* Application Timeline */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-neutral-900 mb-4 flex items-center gap-2">
+          <h2 className="card-title font-header text-gray-900 mb-4 flex items-center gap-2">
             <Calendar className="h-5 w-5" />
             Application Timeline
           </h2>
           
           <div className="space-y-4">
             {state.fertilizerLogs.map((log, index) => (
-              <div key={log.log_id} className="flex items-center gap-4 p-4 bg-neutral-50 rounded-lg">
+              <div key={log.log_id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 bg-teal-800 rounded-full flex items-center justify-center text-white font-bold">
                     {index + 1}
                   </div>
                 </div>
                 <div className="flex-grow">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-semibold text-neutral-900">
+                      <h3 className="font-semibold text-gray-900">
                         {log.fertilizer_type}
                       </h3>
-                      <p className="text-sm text-neutral-600">
+                      <p className="text-sm text-gray-600">
                         {log.amount} • {log.method} application
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className="font-medium text-neutral-900">
+                      <div className="font-medium text-gray-900">
                         {new Date(log.date_applied).toLocaleDateString()}
                       </div>
                       <div className="badge badge-success badge-sm">Applied</div>
@@ -87,15 +87,15 @@ export default function Tracker() {
               <div className="flex-grow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-semibold text-neutral-900">
+                    <h3 className="font-semibold text-gray-900">
                       Nano-Nitrogen (Recommended)
                     </h3>
-                    <p className="text-sm text-neutral-600">
+                    <p className="text-sm text-gray-600">
                       12ml • top-up application
                     </p>
                   </div>
                   <div className="text-right">
-                    <div className="font-medium text-neutral-900">
+                    <div className="font-medium text-gray-900">
                       Aug 20, 2025
                     </div>
                     <div className="badge badge-warning badge-sm">Pending</div>
@@ -110,7 +110,7 @@ export default function Tracker() {
       {/* Before vs After Comparison */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-neutral-900 mb-4 flex items-center gap-2">
+          <h2 className="card-title font-header text-gray-900 mb-4 flex items-center gap-2">
             <TrendingUp className="h-5 w-5" />
             Before vs After Comparison
           </h2>
@@ -122,7 +122,7 @@ export default function Tracker() {
               <div className="space-y-2">
                 {Object.entries(comparisonData.before).map(([nutrient, value]) => (
                   <div key={nutrient} className="flex justify-between">
-                    <span className="text-neutral-600">{nutrient.toUpperCase()}</span>
+                    <span className="text-gray-600">{nutrient.toUpperCase()}</span>
                     <span className="font-mono font-medium">{value}</span>
                   </div>
                 ))}
@@ -138,7 +138,7 @@ export default function Tracker() {
               <div className="space-y-2">
                 {Object.entries(comparisonData.after).map(([nutrient, value]) => (
                   <div key={nutrient} className="flex justify-between">
-                    <span className="text-neutral-600">{nutrient.toUpperCase()}</span>
+                    <span className="text-gray-600">{nutrient.toUpperCase()}</span>
                     <span className="font-mono font-medium">{value}</span>
                   </div>
                 ))}
@@ -174,7 +174,7 @@ export default function Tracker() {
       {/* Yield Comparison Chart */}
       <div className="card bg-white shadow-md">
         <div className="card-body">
-          <h2 className="card-title font-header text-neutral-900 mb-4 flex items-center gap-2">
+          <h2 className="card-title font-header text-gray-900 mb-4 flex items-center gap-2">
             <BarChart3 className="h-5 w-5" />
             Yield Comparison (tons/hectare)
           </h2>
@@ -191,8 +191,8 @@ export default function Tracker() {
                   borderRadius: '8px' 
                 }}
               />
-              <Bar dataKey="baseline" fill="#8d1536" name="Traditional Fertilizer" />
-              <Bar dataKey="withNano" fill="#00563e" name="With Nano-Fertilizer" />
+              <Bar dataKey="baseline" fill="#dc2626" name="Traditional Fertilizer" />
+              <Bar dataKey="withNano" fill="#115e59" name="With Nano-Fertilizer" />
             </BarChart>
           </ResponsiveContainer>
           
@@ -217,40 +217,40 @@ export default function Tracker() {
       <div className="card bg-white shadow-md">
         <div className="card-body">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="card-title font-header text-neutral-900">
+            <h2 className="card-title font-header text-gray-900">
               📄 Season-End Report
             </h2>
-            <button className="btn btn-secondary btn-sm">
+            <button className="btn bg-gray-600 hover:bg-gray-700 text-white border-0 btn-sm">
               Download Report
             </button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-neutral-900 mb-3">Summary Statistics</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">Summary Statistics</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Total Applications</span>
+                  <span className="text-gray-600">Total Applications</span>
                   <span className="font-medium">8 applications</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Nano-fertilizer Used</span>
+                  <span className="text-gray-600">Nano-fertilizer Used</span>
                   <span className="font-medium">125ml total</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Cost Savings</span>
+                  <span className="text-gray-600">Cost Savings</span>
                   <span className="font-medium text-green-600">₱3,200</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Environmental Score</span>
+                  <span className="text-gray-600">Environmental Score</span>
                   <span className="font-medium text-green-600">A+ (Low Impact)</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold text-neutral-900 mb-3">Recommendations</h3>
-              <ul className="text-sm space-y-1 text-neutral-700">
+              <h3 className="font-semibold text-gray-900 mb-3">Recommendations</h3>
+              <ul className="text-sm space-y-1 text-gray-700">
                 <li className="flex items-center gap-2">
                   <FontAwesomeIcon icon="check-circle" className="text-green-600" />
                   Continue nano-fertilizer program
