@@ -12,6 +12,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "FastAPI backend is running"}
+
 @app.post("/predict")
 @app.post("/predict/")
 async def predict(request: Request):
