@@ -19,13 +19,14 @@ class handler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(response).encode())
 
     def do_POST(self):
-        if self.path == '/predict' or self.path == '/predict/':
+        print(f"POST request path: {self.path}")  # Debug logging
+        if self.path in ['/predict', '/predict/', '/api/predict', '/api/predict/']:
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             
             try:
                 data = json.loads(post_data.decode('utf-8'))
-                response = {"result": "ok", "received": data}
+                response = {"result": "ok", "received": data, "path": self.path}
                 
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
@@ -44,4 +45,4 @@ class handler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
-            self.wfile.write(json.dumps({"detail": "Not Found"}).encode())
+            self.wfile.write(json.dumps({"detail": "Not Found", "requested_path": self.path}).encode())
