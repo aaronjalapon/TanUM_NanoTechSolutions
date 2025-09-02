@@ -13,6 +13,7 @@ app.add_middleware(
 )
 
 @app.post("/predict")
+@app.post("/predict/")
 async def predict(request: Request):
     data = await request.json()
     return JSONResponse({"result": "ok", "received": data})
