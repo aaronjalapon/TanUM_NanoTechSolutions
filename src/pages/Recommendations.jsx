@@ -44,7 +44,7 @@ export default function Recommendations() {
             <h2 className="font-header text-xl font-bold text-neutral-900">
               Current Recommendation
             </h2>
-            <div className="badge badge-primary badge-lg">
+            <div className="badge badge-primary badge-lg max-w-full text-xs sm:text-sm md:text-base lg:text-lg">
               {recommendation.confidence_level || 'High'} Confidence
             </div>
           </div>
