@@ -119,7 +119,7 @@ export default function Recommendations() {
                 AI Recommendation
               </h2>
               <div className="badge badge-primary badge-sm sm:badge-lg self-start sm:self-auto">
-                <span className="text-xs sm:text-sm">
+                <span className="text-[-10px] sm:text-sm">
                   {getConfidenceLevel(aiRecommendation.confidence)} Confidence
                 </span>
               </div>
