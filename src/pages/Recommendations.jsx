@@ -97,14 +97,14 @@ export default function Recommendations() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
       {/* Page Header */}
       <div>
-        <h1 className="font-header text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-3">
-          <FontAwesomeIcon icon="flask" className="text-primary" />
-          AI Fertilizer Recommendations
+        <h1 className="font-header text-2xl sm:text-3xl font-bold text-neutral-900 mb-2 flex items-center gap-2 sm:gap-3">
+          <FontAwesomeIcon icon="flask" className="text-primary text-xl sm:text-2xl" />
+          <span className="break-words">AI Fertilizer Recommendations</span>
         </h1>
-        <p className="font-body text-neutral-600">
+        <p className="font-body text-sm sm:text-base text-neutral-600">
           Smart nano-fertilizer suggestions based on real-time soil analysis
         </p>
       </div>
@@ -112,28 +112,30 @@ export default function Recommendations() {
       {/* AI Recommendation Card */}
       {aiRecommendation && (
         <div className="card bg-gradient-to-r from-primary/10 to-secondary/10 shadow-lg border-l-4 border-primary">
-          <div className="card-body p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-header text-xl font-bold text-neutral-900 flex items-center gap-2">
+          <div className="card-body p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3 sm:gap-0">
+              <h2 className="font-header text-lg sm:text-xl font-bold text-neutral-900 flex items-center gap-2">
                 <FontAwesomeIcon icon="brain" className="text-primary" />
                 AI Recommendation
               </h2>
-              <div className="badge badge-primary badge-lg">
-                {getConfidenceLevel(aiRecommendation.confidence)} Confidence
+              <div className="badge badge-primary badge-sm sm:badge-lg self-start sm:self-auto">
+                <span className="text-xs sm:text-sm">
+                  {getConfidenceLevel(aiRecommendation.confidence)} Confidence
+                </span>
               </div>
             </div>
             
-            <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
-              <div className="flex items-center gap-3 mb-2">
-                <FontAwesomeIcon icon="seedling" className="text-primary text-lg" />
-                <span className="font-header font-semibold text-lg text-neutral-900">
+            <div className="bg-white rounded-lg p-3 sm:p-4 mb-4 shadow-sm">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                <FontAwesomeIcon icon="seedling" className="text-primary text-base sm:text-lg" />
+                <span className="font-header font-semibold text-base sm:text-lg text-neutral-900">
                   Recommended Fertilizer
                 </span>
               </div>
-              <p className="font-mono text-2xl font-bold text-primary mb-2">
+              <p className="font-mono text-xl sm:text-2xl font-bold text-primary mb-2 break-words">
                 {aiRecommendation.predicted_fertilizer}
               </p>
-              <p className="text-neutral-700 text-sm">
+              <p className="text-neutral-700 text-xs sm:text-sm break-words">
                 Confidence: {(aiRecommendation.confidence * 100).toFixed(1)}% • 
                 Generated: {new Date(aiRecommendation.timestamp).toLocaleString()}
               </p>
@@ -141,21 +143,21 @@ export default function Recommendations() {
 
             {/* AI Recommendations List */}
             <div className="space-y-2 mb-4">
-              <h3 className="font-semibold text-neutral-900 mb-2">AI Insights:</h3>
+              <h3 className="font-semibold text-neutral-900 mb-2 text-sm sm:text-base">AI Insights:</h3>
               {aiRecommendation.recommendations.map((rec, index) => (
-                <div key={index} className="flex items-start gap-2 text-sm text-neutral-700 bg-white/50 rounded p-2">
+                <div key={index} className="flex items-start gap-2 text-xs sm:text-sm text-neutral-700 bg-white/50 rounded p-2">
                   <span className="text-primary">•</span>
-                  <span>{rec}</span>
+                  <span className="break-words">{rec}</span>
                 </div>
               ))}
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button 
                 onClick={fetchAiRecommendation}
                 disabled={loading}
-                className="btn btn-primary flex-1 gap-2"
+                className="btn btn-primary flex-1 gap-2 text-sm sm:text-base"
               >
                 {loading ? (
                   <FontAwesomeIcon icon="spinner" className="animate-spin" />
@@ -164,7 +166,7 @@ export default function Recommendations() {
                 )}
                 {loading ? 'Analyzing...' : 'Refresh Analysis'}
               </button>
-              <button className="btn btn-outline gap-2">
+              <button className="btn btn-outline gap-2 text-sm sm:text-base sm:flex-none">
                 <FontAwesomeIcon icon="plus" />
                 Log Application
               </button>
@@ -176,9 +178,9 @@ export default function Recommendations() {
       {/* Loading State */}
       {loading && !aiRecommendation && (
         <div className="card bg-white shadow-lg">
-          <div className="card-body p-6 text-center">
-            <FontAwesomeIcon icon="spinner" className="text-primary text-2xl animate-spin mb-3" />
-            <p className="text-neutral-600">Analyzing soil data with AI...</p>
+          <div className="card-body p-4 sm:p-6 text-center">
+            <FontAwesomeIcon icon="spinner" className="text-primary text-xl sm:text-2xl animate-spin mb-3" />
+            <p className="text-neutral-600 text-sm sm:text-base">Analyzing soil data with AI...</p>
           </div>
         </div>
       )}
@@ -188,12 +190,12 @@ export default function Recommendations() {
         <div className="card bg-red-50 border border-red-200 shadow-md">
           <div className="card-body p-4">
             <div className="flex items-center gap-3 mb-2">
-              <AlertTriangle className="h-6 w-6 text-red-600" />
-              <h3 className="font-header font-semibold text-red-800">
+              <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-red-600 flex-shrink-0" />
+              <h3 className="font-header font-semibold text-red-800 text-sm sm:text-base">
                 AI Analysis Error
               </h3>
             </div>
-            <p className="text-red-700 mb-3">{error}</p>
+            <p className="text-red-700 mb-3 text-xs sm:text-sm break-words">{error}</p>
             <button 
               onClick={fetchAiRecommendation}
               className="btn btn-error btn-sm"
@@ -208,16 +210,16 @@ export default function Recommendations() {
       <div className="card bg-red-50 border border-red-200 shadow-md">
         <div className="card-body p-4">
           <div className="flex items-center gap-3 mb-2">
-            <AlertTriangle className="h-6 w-6 text-red-600" />
-            <h3 className="font-header font-semibold text-red-800">
+            <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-red-600 flex-shrink-0" />
+            <h3 className="font-header font-semibold text-red-800 text-sm sm:text-base">
               Nutrient Deficiency Alert
             </h3>
           </div>
-          <p className="text-red-700 mb-3 flex items-center gap-2">
-            <FontAwesomeIcon icon="exclamation-triangle" className="text-red-600" />
-            Soil Electrical Conductivity dropping – nutrient deficiency likely in 7 days
+          <p className="text-red-700 mb-3 flex items-start gap-2 text-xs sm:text-sm">
+            <FontAwesomeIcon icon="exclamation-triangle" className="text-red-600 flex-shrink-0 mt-0.5" />
+            <span className="break-words">Soil Electrical Conductivity dropping – nutrient deficiency likely in 7 days</span>
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <button className="btn btn-error btn-sm">
               Take Action Now
             </button>
@@ -230,50 +232,50 @@ export default function Recommendations() {
 
       {/* Recommendation History */}
       <div className="card bg-white shadow-md">
-        <div className="card-body">
-          <h2 className="card-title font-header text-neutral-900 mb-4">
+        <div className="card-body p-4 sm:p-6">
+          <h2 className="card-title font-header text-neutral-900 mb-4 text-lg sm:text-xl">
             📈 Recommendation History
           </h2>
           
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 bg-green-50 rounded-lg border border-green-200 gap-3 sm:gap-0">
               <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 text-green-600" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-neutral-900">Apply 12ml Nano-Nitrogen</div>
-                  <div className="text-sm text-neutral-600">High confidence • Applied successfully</div>
+                  <div className="font-medium text-neutral-900 text-sm sm:text-base">Apply 12ml Nano-Nitrogen</div>
+                  <div className="text-xs sm:text-sm text-neutral-600">High confidence • Applied successfully</div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-sm text-neutral-600">Aug 17, 2025</div>
+              <div className="text-left sm:text-right">
+                <div className="text-xs sm:text-sm text-neutral-600">Aug 17, 2025</div>
                 <div className="badge badge-success badge-sm">Completed</div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 bg-yellow-50 rounded-lg border border-yellow-200 gap-3 sm:gap-0">
               <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-yellow-600" />
+                <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-600 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-neutral-900">Apply 8ml Nano-Phosphorus</div>
-                  <div className="text-sm text-neutral-600">Medium confidence • Pending application</div>
+                  <div className="font-medium text-neutral-900 text-sm sm:text-base">Apply 8ml Nano-Phosphorus</div>
+                  <div className="text-xs sm:text-sm text-neutral-600">Medium confidence • Pending application</div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-sm text-neutral-600">Aug 15, 2025</div>
+              <div className="text-left sm:text-right">
+                <div className="text-xs sm:text-sm text-neutral-600">Aug 15, 2025</div>
                 <div className="badge badge-warning badge-sm">Pending</div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200 gap-3 sm:gap-0">
               <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 text-gray-600" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-neutral-900">No action needed</div>
-                  <div className="text-sm text-neutral-600">High confidence • Soil levels optimal</div>
+                  <div className="font-medium text-neutral-900 text-sm sm:text-base">No action needed</div>
+                  <div className="text-xs sm:text-sm text-neutral-600">High confidence • Soil levels optimal</div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-sm text-neutral-600">Aug 14, 2025</div>
+              <div className="text-left sm:text-right">
+                <div className="text-xs sm:text-sm text-neutral-600">Aug 14, 2025</div>
                 <div className="badge badge-ghost badge-sm">Completed</div>
               </div>
             </div>
@@ -282,54 +284,54 @@ export default function Recommendations() {
       </div>
 
       {/* Recommendation Factors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <div className="card bg-white shadow-md">
-          <div className="card-body">
-            <h3 className="card-title font-header text-neutral-900 mb-4">
+          <div className="card-body p-4 sm:p-6">
+            <h3 className="card-title font-header text-neutral-900 mb-4 text-lg sm:text-xl">
               🔬 Analysis Factors
             </h3>
             <div className="space-y-3">
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Crop Stage</span>
-                <span className="font-medium">Tillering (45 Days After Sowing)</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Crop Stage</span>
+                <span className="font-medium text-sm sm:text-base break-words">Tillering (45 Days After Sowing)</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Soil Moisture</span>
-                <span className="font-medium">75% (Optimal)</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Soil Moisture</span>
+                <span className="font-medium text-sm sm:text-base">75% (Optimal)</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Weather Forecast</span>
-                <span className="font-medium">Rain in 2 days</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Weather Forecast</span>
+                <span className="font-medium text-sm sm:text-base">Rain in 2 days</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Last Application</span>
-                <span className="font-medium">7 days ago</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Last Application</span>
+                <span className="font-medium text-sm sm:text-base">7 days ago</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="card bg-white shadow-md">
-          <div className="card-body">
-            <h3 className="card-title font-header text-neutral-900 mb-4">
+          <div className="card-body p-4 sm:p-6">
+            <h3 className="card-title font-header text-neutral-900 mb-4 text-lg sm:text-xl">
               🎯 Expected Outcomes
             </h3>
             <div className="space-y-3">
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Yield Improvement</span>
-                <span className="font-medium text-green-600">+12%</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Yield Improvement</span>
+                <span className="font-medium text-green-600 text-sm sm:text-base">+12%</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Cost Efficiency</span>
-                <span className="font-medium text-green-600">+8%</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Cost Efficiency</span>
+                <span className="font-medium text-green-600 text-sm sm:text-base">+8%</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Soil Health</span>
-                <span className="font-medium text-green-600">Improved</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Soil Health</span>
+                <span className="font-medium text-green-600 text-sm sm:text-base">Improved</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-600">Environmental Impact</span>
-                <span className="font-medium text-green-600">Reduced</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                <span className="text-neutral-600 text-sm sm:text-base">Environmental Impact</span>
+                <span className="font-medium text-green-600 text-sm sm:text-base">Reduced</span>
               </div>
             </div>
           </div>
