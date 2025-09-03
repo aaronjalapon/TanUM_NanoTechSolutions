@@ -88,9 +88,6 @@ export default function TrendChart() {
           </LineChart>
         </ResponsiveContainer>
         
-        <div className="mt-4 text-xs text-neutral-600">
-          <p>📈 Green lines indicate healthy levels, red lines show critical values</p>
-        </div>
       </div>
     </div>
   );
