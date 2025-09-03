@@ -22,9 +22,9 @@ export default function Recommendations() {
       
       // Use current soil data for prediction or fallback to default values
       const soilData = {
-        nitrogen: latestSoilData?.N || 25,
-        phosphorus: latestSoilData?.P || 20,
-        potassium: latestSoilData?.K || 30,
+        nitrogen: latestSoilData?.N || 15,
+        phosphorus: latestSoilData?.P || 10,
+        potassium: latestSoilData?.K || 20,
         temperature: latestSoilData?.temperature || 28,
         humidity: 65, // Default humidity as it's not in soil data
         moisture: latestSoilData?.moisture || 45,
