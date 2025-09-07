@@ -79,7 +79,7 @@ export default function TrendChart() {
             />
             <Line 
               type="monotone" 
-              dataKey="pH Level" 
+              dataKey="pH Level" s
               stroke="#7c3aed" 
               strokeWidth={2} 
               dot={{ fill: '#7c3aed', strokeWidth: 2, r: 4 }}
