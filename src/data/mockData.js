@@ -21,9 +21,9 @@ export const mockSoilData = [
     data_id: 1,
     farmer_id: 1,
     timestamp: "2025-08-17T08:00:00Z",
-    N: 25, // Nitrogen in mg/kg
+    N: 45, // Nitrogen in mg/kg
     P: 5, // Phosphorus in mg/kg
-    K: 140, // Potassium in mg/kg
+    K: 100, // Potassium in mg/kg
     pH: 6.2, // pH Level
     moisture: 55, // Moisture percentage
     EC: 1, // Electrical Conductivity in dS/m
